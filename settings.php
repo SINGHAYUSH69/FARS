@@ -15,8 +15,8 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'viciousflagbearer@gmail.com'; 
-    $mail->Password   = 'etzg ailh biai nski'; 
+    $mail->Username   = 'yourusername@gmail.com'; 
+    $mail->Password   = 'Your app password'; 
     $mail->SMTPSecure = 'tls';
     $mail->Port       = 587;
 
