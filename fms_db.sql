@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2025 at 12:19 PM
+-- Generation Time: Apr 18, 2025 at 01:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fms_db`
+-- Database: `faculty_assesment`
 --
 
 -- --------------------------------------------------------
@@ -48,7 +48,18 @@ INSERT INTO `audit_log` (`log_id`, `user_id`, `action`, `table_affected`, `recor
 (1, 1, 'create', 'users', 11, NULL, '{\"first_name\":\"New\",\"last_name\":\"User\",\"email\":\"new.user@university.edu\"}', '192.168.1.100', 'Mozilla/5.0 (Windows NT 10.0)', '2023-05-01 03:45:00'),
 (2, 2, 'update', 'faculty', 3, '{\"office_hours\":\"Tue/Thu 2pm-4pm\"}', '{\"office_hours\":\"Tue/Thu 1pm-3pm\"}', '192.168.1.150', 'Mozilla/5.0 (Macintosh)', '2023-05-02 09:00:00'),
 (3, 21, 'INSERT', 'evaluations', 5, NULL, '{\"faculty_id\":\"4\",\"academic_year\":\"2024-2025\",\"semester\":\"fall\"}', '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-05 09:29:15'),
-(4, 21, 'INSERT', 'faculty', 22, NULL, '{\"department_id\":\"4\",\"position\":\"Faculty\",\"rank\":\"assistant\",\"hire_date\":\"2025-04-01\",\"tenure_status\":\"tenured\",\"bio\":\"dsd\",\"office_location\":\"BLock-34\"}', '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-05 09:36:44');
+(4, 21, 'INSERT', 'faculty', 22, NULL, '{\"department_id\":\"4\",\"position\":\"Faculty\",\"rank\":\"assistant\",\"hire_date\":\"2025-04-01\",\"tenure_status\":\"tenured\",\"bio\":\"dsd\",\"office_location\":\"BLock-34\"}', '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-05 09:36:44'),
+(5, 23, 'INSERT', 'evaluations', 6, NULL, '{\"faculty_id\":\"2\",\"academic_year\":\"2024-2025\",\"semester\":\"spring\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:13:47'),
+(6, 23, 'UPDATE', 'evaluations', 6, '{\"status\":\"draft\"}', '{\"status\":\"submitted\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:14:14'),
+(7, 23, 'UPDATE', 'evaluations', 6, '{\"status\":\"submitted\"}', '{\"status\":\"reviewed\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:14:20'),
+(8, 23, 'INSERT', 'evaluations', 7, NULL, '{\"faculty_id\":\"8\",\"academic_year\":\"2024-2025\",\"semester\":\"summer\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:21:58'),
+(9, 23, 'INSERT', 'evaluations', 8, NULL, '{\"faculty_id\":\"9\",\"academic_year\":\"2024-2025\",\"semester\":\"fall\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:24:44'),
+(10, 23, 'UPDATE', 'evaluations', 8, '{\"status\":\"draft\"}', '{\"status\":\"submitted\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:24:51'),
+(11, 23, 'UPDATE', 'evaluations', 8, '{\"status\":\"submitted\"}', '{\"status\":\"approved\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:24:54'),
+(12, 23, 'INSERT', 'evaluations', 9, NULL, '{\"faculty_id\":\"22\",\"academic_year\":\"2023-2024\",\"semester\":\"fall\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:27:24'),
+(13, 23, 'UPDATE', 'evaluations', 9, '{\"status\":\"draft\"}', '{\"status\":\"submitted\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:27:34'),
+(14, 23, 'UPDATE', 'evaluations', 9, '{\"status\":\"submitted\"}', '{\"status\":\"reviewed\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-17 05:27:36'),
+(15, 23, 'UPDATE', 'evaluations', 9, '{\"status\":\"reviewed\"}', '{\"status\":\"approved\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', '2025-04-18 01:06:53');
 
 -- --------------------------------------------------------
 
@@ -135,7 +146,11 @@ INSERT INTO `evaluations` (`evaluation_id`, `faculty_id`, `evaluator_id`, `acade
 (2, 4, 8, '2022-2023', 'fall', 'reviewed', 3.75, 'Good performance with room for improvement in research output', '2022-12-16 04:30:00', '2022-12-21 11:00:00', '2023-01-11 10:00:00', NULL),
 (3, 6, 5, '2022-2023', 'spring', 'submitted', NULL, 'Evaluation submitted for review', '2023-05-01 03:30:00', '2023-05-05 10:00:00', NULL, NULL),
 (4, 7, 10, '2022-2023', 'spring', 'draft', NULL, 'Evaluation in progress', '2023-05-10 08:30:00', NULL, NULL, NULL),
-(5, 4, 21, '2024-2025', 'fall', 'draft', 1.40, '', '2025-04-05 09:29:15', NULL, NULL, NULL);
+(5, 4, 21, '2024-2025', 'fall', 'draft', 1.40, '', '2025-04-05 09:29:15', NULL, NULL, NULL),
+(6, 2, 23, '2024-2025', 'spring', 'reviewed', 3.00, 'Can Improve in teaching and Communication Skills.', '2025-04-17 05:13:47', '2025-04-17 10:44:14', '2025-04-17 10:44:20', NULL),
+(7, 8, 23, '2024-2025', 'summer', 'draft', 3.80, 'Excellent Work Ethics', '2025-04-17 05:21:58', NULL, NULL, NULL),
+(8, 9, 23, '2024-2025', 'fall', 'approved', 2.20, 'Can Improve On Professional Development.', '2025-04-17 05:24:44', '2025-04-17 10:54:51', NULL, '2025-04-17 10:54:54'),
+(9, 22, 23, '2023-2024', 'fall', 'approved', 3.60, '', '2025-04-17 05:27:24', '2025-04-17 10:57:34', '2025-04-17 10:57:36', '2025-04-18 06:36:53');
 
 -- --------------------------------------------------------
 
@@ -200,7 +215,27 @@ INSERT INTO `evaluation_scores` (`score_id`, `evaluation_id`, `metric_id`, `scor
 (12, 5, 2, 1.00, ''),
 (13, 5, 3, 2.00, ''),
 (14, 5, 4, 1.00, ''),
-(15, 5, 5, 1.00, '');
+(15, 5, 5, 1.00, ''),
+(16, 6, 1, 3.00, ''),
+(17, 6, 2, 1.00, ''),
+(18, 6, 3, 4.00, ''),
+(19, 6, 4, 5.00, ''),
+(20, 6, 5, 2.00, ''),
+(21, 7, 1, 5.00, ''),
+(22, 7, 2, 4.00, ''),
+(23, 7, 3, 3.00, ''),
+(24, 7, 4, 3.00, ''),
+(25, 7, 5, 4.00, ''),
+(26, 8, 1, 1.00, ''),
+(27, 8, 2, 3.00, ''),
+(28, 8, 3, 2.00, ''),
+(29, 8, 4, 2.00, ''),
+(30, 8, 5, 3.00, ''),
+(31, 9, 1, 4.00, ''),
+(32, 9, 2, 3.00, ''),
+(33, 9, 3, 3.00, ''),
+(34, 9, 4, 3.00, ''),
+(35, 9, 5, 5.00, '');
 
 -- --------------------------------------------------------
 
@@ -250,14 +285,42 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`faculty_id`, `department_id`, `position`, `rank`, `hire_date`, `tenure_status`, `bio`, `office_location`, `office_hours`) VALUES
-(2, 1, 'Professor and Department Chair', 'full', '2010-08-15', 'tenured', 'Specializes in Artificial Intelligence and Machine Learning', 'CS-101', 'Mon/Wed 10am-12pm'),
-(3, 1, 'Associate Professor', 'associate', '2015-08-20', 'tenure_track', 'Focuses on Database Systems and Distributed Computing', 'CS-205', 'Tue/Thu 1pm-3pm'),
-(4, 2, 'Assistant Professor', 'assistant', '2018-08-15', 'tenure_track', 'Research interests in Algebraic Geometry', 'MATH-312', 'Mon/Wed 2pm-4pm'),
+(2, 1, 'Professor and Department Chair', 'emeritus', '2010-08-15', 'tenured', 'Specializes in Artificial Intelligence and Machine Learning', 'CS-101', 'Mon/Wed 10am-12pm'),
+(3, 1, 'Associate Professor', 'associate', '2015-08-20', 'tenure_track', 'Focuses on Database Systems and Distributed Computing', 'CSE-205', 'Tue/Thu 1pm-3pm'),
+(4, 1, 'Assistant Professor', 'assistant', '2018-08-15', 'tenure_track', 'Specialization in Data Structures', 'CSE-312', 'Mon/Wed 2pm-4pm'),
 (6, 3, 'Professor', 'full', '2008-08-15', 'tenured', 'Specializes in Quantum Mechanics', 'PHYS-101', 'Tue/Thu 10am-12pm'),
 (7, 4, 'Associate Professor', 'associate', '2014-08-15', 'tenured', 'Focuses on Molecular Biology', 'BIO-215', 'Mon/Wed 1pm-3pm'),
 (8, 2, 'Professor and Department Chair', 'full', '2009-08-15', 'tenured', 'Research interests in Number Theory', 'MATH-101', 'Tue/Thu 2pm-4pm'),
-(9, 5, 'Assistant Professor', 'assistant', '2020-08-15', 'tenure_track', 'Specializes in Organic Chemistry', 'CHEM-308', 'Fri 10am-2pm'),
+(9, 5, 'Teacher', 'full', '2020-08-15', 'tenure_track', 'Specializes in Organic Chemistry', 'CHEM-308', 'Fri 10am-2pm'),
 (22, 4, 'Faculty', 'assistant', '2025-04-01', 'tenured', 'dsd', 'BLock-34', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `facultydata`
+--
+
+CREATE TABLE `facultydata` (
+  `f_id` int(2) NOT NULL,
+  `Name` text NOT NULL,
+  `email` text NOT NULL,
+  `password` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `facultydata`
+--
+
+INSERT INTO `facultydata` (`f_id`, `Name`, `email`, `password`) VALUES
+(1, 'Vaibhav Mohanty', 'viciousflagbearer@gmail.com', 1111),
+(2, 'Nidhi Arora', 'nidhi@university.edu', 123456),
+(3, 'Rajkumar Singh', 'Singhcse@university.edu', 654321),
+(4, 'Richa Nigam', 'nigam@university.edu', 67891),
+(6, 'Sandeep Minhas', 'sandeep123@university.edu', 198760),
+(7, 'Sanjeev Pathak', 'sanjeev.pathak@university.edu', 102136),
+(8, 'Vikram Sharma', 'vikram@university.edu', 666999),
+(9, 'Ashok Pandey', 'pandey432@university.edu', 101010),
+(22, 'Sanjay Mishra', 'Biology984@university.edu', 135790);
 
 -- --------------------------------------------------------
 
@@ -335,7 +398,32 @@ CREATE TABLE `promotion_requests` (
 
 INSERT INTO `promotion_requests` (`id`, `faculty_id`, `current_rank`, `requested_rank`, `justification`, `status`, `reviewer_id`, `review_comments`, `submission_date`) VALUES
 (1, 4, 'assistant', 'associate', 'Published 5 peer-reviewed papers, excellent teaching evaluations, led curriculum revision committee', 'under_review', 5, 'Strong case, needs external review letters', '2023-04-01 04:30:00'),
-(2, 7, 'associate', 'full', 'Established research lab, secured NIH grant, department service for 5 years', 'pending', NULL, NULL, '2023-05-01 08:30:00');
+(2, 7, 'associate', 'full', 'Established research lab, secured NIH grant, department service for 5 years', 'pending', NULL, NULL, '2023-05-01 08:30:00'),
+(3, 6, 'full', 'emeritus', 'Dedicated Professional with great Portfolio.', 'pending', NULL, NULL, '2025-04-17 17:11:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `rating_id` int(2) NOT NULL,
+  `Name` text NOT NULL,
+  `email` text NOT NULL,
+  `ui` int(1) DEFAULT NULL,
+  `flow` int(11) NOT NULL,
+  `feature` int(11) NOT NULL,
+  `support` int(11) NOT NULL,
+  `remark` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`rating_id`, `Name`, `email`, `ui`, `flow`, `feature`, `support`, `remark`) VALUES
+(5, 'Ayush Singh', 'ayushsingh123102@gmail.com', 5, 4, 5, 4, 'Product is ready for Production.');
 
 -- --------------------------------------------------------
 
@@ -390,18 +478,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password_hash`, `salt`, `role`, `account_status`, `last_login`, `failed_login_attempts`, `password_reset_token`, `password_reset_expires`, `created_at`, `updated_at`) VALUES
-(1, 'John', 'Smith', 'john.smith@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt123', 'admin', 'active', '2023-05-15 09:30:00', 0, NULL, NULL, '2022-01-10 02:30:00', '2023-05-15 04:00:00'),
-(2, 'Sarah', 'Johnson', 'sarah.johnson@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt456', 'department_head', 'active', '2023-05-14 14:15:00', 0, NULL, NULL, '2022-01-10 02:30:00', '2023-05-14 08:45:00'),
-(3, 'Michael', 'Williams', 'michael.williams@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt789', 'faculty', 'active', '2023-05-14 10:45:00', 0, NULL, NULL, '2022-01-15 02:30:00', '2023-05-14 05:15:00'),
-(4, 'Emily', 'Brown', 'emily.brown@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt012', 'faculty', 'active', '2023-05-13 16:20:00', 0, NULL, NULL, '2022-02-01 02:30:00', '2023-05-13 10:50:00'),
-(5, 'David', 'Jones', 'david.jones@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt345', 'reviewer', 'active', '2023-05-12 11:10:00', 0, NULL, NULL, '2022-02-10 02:30:00', '2023-05-12 05:40:00'),
-(6, 'Jennifer', 'Garcia', 'jennifer.garcia@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt678', 'faculty', 'active', '2023-05-11 13:25:00', 0, NULL, NULL, '2022-03-05 02:30:00', '2023-05-11 07:55:00'),
-(7, 'Robert', 'Miller', 'robert.miller@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt901', 'faculty', 'active', '2023-05-10 09:15:00', 0, NULL, NULL, '2022-03-15 02:30:00', '2023-05-10 03:45:00'),
-(8, 'Jessica', 'Davis', 'jessica.davis@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt234', 'department_head', 'active', '2023-05-09 15:30:00', 0, NULL, NULL, '2022-04-01 02:30:00', '2023-05-09 10:00:00'),
-(9, 'Thomas', 'Rodriguez', 'thomas.rodriguez@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt567', 'faculty', 'active', '2023-05-08 10:20:00', 0, NULL, NULL, '2022-04-10 02:30:00', '2023-05-08 04:50:00'),
-(10, 'Elizabeth', 'Martinez', 'elizabeth.martinez@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt890', 'reviewer', 'active', '2023-05-07 14:45:00', 0, NULL, NULL, '2022-05-01 02:30:00', '2023-05-07 09:15:00'),
-(21, 'Admin', 'User2', 'admin2@university.edu', '$2y$10$c.orl5TD/4f.pfvcZbKweO30DoT49anMH2pzW3gwLTlimMlxAFxLS', 'c0d97fa6cba9816cf5f4923628074b97', 'admin', 'active', '2025-04-05 14:57:33', 0, NULL, NULL, '2025-04-05 09:27:26', '2025-04-05 09:27:33'),
-(22, 'test', 'hah', 'testfaculty@university.edu', '$2y$10$1vaT3X3tUoB1CATxhlPpOel6LcnwJINsUu7UfUkbqfPr8zQYuVXkG', 'b01a556b6161e7111af73c6f96a384ee', 'faculty', 'active', NULL, 0, NULL, NULL, '2025-04-05 09:36:44', '2025-04-05 09:36:44');
+(1, 'Richa', 'Nigam', 'nigam.richa@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt123', 'admin', 'active', '2023-05-15 09:30:00', 0, NULL, NULL, '2022-01-10 02:30:00', '2025-04-12 18:45:34'),
+(2, 'Nidhi ', 'Arora', 'nidhi@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt456', 'department_head', 'active', '2023-05-14 14:15:00', 0, NULL, NULL, '2022-01-10 02:30:00', '2025-04-12 18:52:23'),
+(3, 'Rajkumar', 'Singh', 'Singhcse@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt789', 'faculty', 'active', '2023-05-14 10:45:00', 0, NULL, NULL, '2022-01-15 02:30:00', '2025-04-12 18:54:46'),
+(4, 'Richa', 'Nigam', 'nigam@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt012', 'faculty', 'active', '2023-05-13 16:20:00', 0, NULL, NULL, '2022-02-01 02:30:00', '2025-04-12 18:50:03'),
+(5, 'George', 'Jones', 'george.jones@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt345', 'reviewer', 'active', '2023-05-12 11:10:00', 0, NULL, NULL, '2022-02-10 02:30:00', '2025-04-17 16:27:35'),
+(6, 'Sandeep', 'Minhas', 'sandeep123@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt678', 'faculty', 'active', '2023-05-11 13:25:00', 0, NULL, NULL, '2022-03-05 02:30:00', '2025-04-12 18:51:17'),
+(7, 'Sanjeev', 'Pathak', 'sanjeev.pathak@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt901', 'faculty', 'active', '2023-05-10 09:15:00', 0, NULL, NULL, '2022-03-15 02:30:00', '2025-04-12 18:52:54'),
+(8, 'Vikram', 'Sharma', 'vikram@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt234', 'department_head', 'active', '2023-05-09 15:30:00', 0, NULL, NULL, '2022-04-01 02:30:00', '2025-04-12 18:50:49'),
+(9, 'Ashok', 'Pandey', 'pandey432@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt567', 'faculty', 'active', '2023-05-08 10:20:00', 0, NULL, NULL, '2022-04-10 02:30:00', '2025-04-12 18:53:57'),
+(10, 'Harshpreet', 'Kaur', 'kaur.harshpreet@university.edu', '$2a$10$xJwL5v5zJz6Z6Z6Z6Z6Z6e', 'somesalt890', 'reviewer', 'active', '2023-05-07 14:45:00', 0, NULL, NULL, '2022-05-01 02:30:00', '2025-04-17 16:28:25'),
+(21, 'Aquib', 'Raza', 'admin2@university.edu', '$2y$10$c.orl5TD/4f.pfvcZbKweO30DoT49anMH2pzW3gwLTlimMlxAFxLS', 'c0d97fa6cba9816cf5f4923628074b97', 'admin', 'active', '2025-04-05 14:57:33', 0, NULL, NULL, '2025-04-05 09:27:26', '2025-04-17 16:28:51'),
+(22, 'Sanjay', 'Mishra', 'Biology984@university.edu', '$2y$10$1vaT3X3tUoB1CATxhlPpOel6LcnwJINsUu7UfUkbqfPr8zQYuVXkG', 'b01a556b6161e7111af73c6f96a384ee', 'faculty', 'active', NULL, 0, NULL, NULL, '2025-04-05 09:36:44', '2025-04-12 18:51:46'),
+(23, 'Ayush', 'Singh', 'admin@faculty.edu', '$2y$10$oC7NQmzLpWKtyabljg/obO5wAJ5Z0p8oU.BGyxPwhCKJfAijSFDbG', '909570c0f570cde79832391161c24fe5', 'admin', 'active', '2025-04-18 06:33:11', 0, NULL, NULL, '2025-04-11 18:53:05', '2025-04-18 01:03:11');
 
 -- --------------------------------------------------------
 
@@ -526,6 +615,13 @@ ALTER TABLE `faculty`
   ADD KEY `idx_rank` (`rank`);
 
 --
+-- Indexes for table `facultydata`
+--
+ALTER TABLE `facultydata`
+  ADD PRIMARY KEY (`f_id`),
+  ADD UNIQUE KEY `password` (`password`);
+
+--
 -- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
@@ -546,6 +642,13 @@ ALTER TABLE `promotion_requests`
   ADD PRIMARY KEY (`id`),
   ADD KEY `faculty_id` (`faculty_id`),
   ADD KEY `reviewer_id` (`reviewer_id`);
+
+--
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`rating_id`),
+  ADD UNIQUE KEY `email` (`email`) USING HASH;
 
 --
 -- Indexes for table `tasks`
@@ -588,7 +691,7 @@ ALTER TABLE `workshop_registrations`
 -- AUTO_INCREMENT for table `audit_log`
 --
 ALTER TABLE `audit_log`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `departments`
@@ -606,7 +709,7 @@ ALTER TABLE `development_plans`
 -- AUTO_INCREMENT for table `evaluations`
 --
 ALTER TABLE `evaluations`
-  MODIFY `evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `evaluation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `evaluation_metrics`
@@ -618,7 +721,7 @@ ALTER TABLE `evaluation_metrics`
 -- AUTO_INCREMENT for table `evaluation_scores`
 --
 ALTER TABLE `evaluation_scores`
-  MODIFY `score_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `score_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -642,7 +745,13 @@ ALTER TABLE `performance_metrics`
 -- AUTO_INCREMENT for table `promotion_requests`
 --
 ALTER TABLE `promotion_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `rating_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tasks`
@@ -654,7 +763,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `workshops`
