@@ -9,7 +9,7 @@ if (!isLoggedIn()) {
 
 $evaluation_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// Get evaluation details
+
 try {
     $stmt = $pdo->prepare("
         SELECT e.*, 
@@ -31,7 +31,6 @@ try {
         exit();
     }
     
-    // Get evaluation metrics and scores
     try {
         $scoreStmt = $pdo->prepare("
             SELECT m.metric_id, m.name as metric_name, m.description, m.weight,
@@ -44,7 +43,7 @@ try {
         $scoreStmt->execute([$evaluation_id]);
         $metrics = $scoreStmt->fetchAll(PDO::FETCH_ASSOC);
         
-        // Calculate average score
+    
         $totalWeight = 0;
         $weightedScore = 0;
         
@@ -70,9 +69,9 @@ include 'includes/header.php';
 include 'includes/sidebar.php';
 ?>
 
-<!-- Main Content -->
+
 <div class="flex-1 sm:ml-64">
-    <!-- Page Heading -->
+   
     <header class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <h2 class="text-lg font-semibold text-gray-800">
@@ -91,10 +90,9 @@ include 'includes/sidebar.php';
         </div>
     </header>
 
-    <!-- Page Content -->
     <main class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <!-- Evaluation Information -->
+           
             <div class="lg:col-span-1">
                 <div class="bg-white overflow-hidden shadow-sm rounded-lg">
                     <div class="border-b border-gray-200 px-6 py-4">
@@ -167,7 +165,7 @@ include 'includes/sidebar.php';
                 </div>
             </div>
             
-            <!-- Evaluation Details -->
+            
             <div class="lg:col-span-2">
                 <div class="bg-white overflow-hidden shadow-sm rounded-lg">
                     <div class="border-b border-gray-200 px-6 py-4">
@@ -202,7 +200,7 @@ include 'includes/sidebar.php';
                     </div>
                 </div>
                 
-                <!-- Overall Comments -->
+               
                 <?php if (!empty($evaluation['comments'])): ?>
                     <div class="bg-white overflow-hidden shadow-sm rounded-lg mt-6">
                         <div class="border-b border-gray-200 px-6 py-4">
@@ -216,7 +214,7 @@ include 'includes/sidebar.php';
                     </div>
                 <?php endif; ?>
                 
-                <!-- Action Buttons -->
+             
                 <?php if ($_SESSION['user_role'] === 'admin' || $_SESSION['user_id'] === $evaluation['evaluator_id']): ?>
                     <div class="mt-6 flex justify-end">
                         <?php if ($evaluation['status'] === 'draft' && $_SESSION['user_id'] === $evaluation['evaluator_id']): ?>

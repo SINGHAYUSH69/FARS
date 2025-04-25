@@ -1,9 +1,9 @@
 <?php
-// filepath: /opt/lampp/htdocs/fms/setup_tables.php
+
 require_once 'includes/config.php';
 
 try {
-    // Create events table if it doesn't exist
+   
     $pdo->exec("
         CREATE TABLE IF NOT EXISTS events (
             event_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,7 +17,6 @@ try {
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ");
 
-    // Create tasks table if it doesn't exist
     $pdo->exec("
         CREATE TABLE IF NOT EXISTS tasks (
             task_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -31,7 +30,6 @@ try {
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ");
 
-    // Create promotion_requests table if it doesn't exist
     $pdo->exec("
         CREATE TABLE IF NOT EXISTS promotion_requests (
             id INT AUTO_INCREMENT PRIMARY KEY,

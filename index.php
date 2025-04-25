@@ -18,10 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="gradient-bg min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-4xl frosted-glass rounded-xl shadow-2xl overflow-hidden">
         <div class="grid grid-cols-1 md:grid-cols-2">
-            <!-- Login Form -->
             <div class="p-8 md:p-12">
                 <div class="mb-10 text-center">
                     <div class="inline-block bg-indigo-600/20 p-4 rounded-2xl">
@@ -107,13 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
 
                 <div class="mt-8 text-center">
-                    <p class="text-gray-400">New faculty member? 
-                        <a href="settings.php" class="text-indigo-400 hover:text-indigo-300 font-medium">Request access</a>
+                    <p class="text-gray-400">New member? 
+                        <a href="intro.html" class="text-indigo-400 hover:text-indigo-300 font-medium">Home</a>
                     </p>
                 </div>
             </div>
-
-            <!-- Graphic Side -->
             <div class="hidden md:block bg-gradient-to-br from-indigo-900/50 to-gray-900 p-12">
                 <div class="h-full flex flex-col justify-center items-center text-center">
                     <div class="max-w-xs">
@@ -131,7 +126,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <!-- Footer Note -->
     <div class="absolute bottom-4 text-center w-full text-gray-500 text-sm">
         © <?php echo date('Y'); ?> Faculty Management System. Restricted access.
     </div>

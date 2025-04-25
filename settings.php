@@ -15,8 +15,8 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'yourusername@gmail.com'; 
-    $mail->Password   = 'Your app password'; 
+    $mail->Username   = 'viciousflagbearer@gmail.com'; 
+    $mail->Password   = 'etzg ailh biai nski'; 
     $mail->SMTPSecure = 'tls';
     $mail->Port       = 587;
 
@@ -172,7 +172,7 @@ try {
       <a href="dashboard.php">Dashboard</a>
       <a href="contact.html">Rate Us</a>
     </div>
-    <a href="login2.html" style="background-color: #e74c3c; padding: 10px 20px; border-radius: 5px; color: #fff; text-decoration: none; font-weight: bold;">Logout</a>
+    <a href="intro.html" style="background-color: #e74c3c; padding: 10px 20px; border-radius: 5px; color: #fff; text-decoration: none; font-weight: bold;">Logout</a>
   </nav>
 
   <div class="header">

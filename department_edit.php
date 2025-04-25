@@ -50,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
         
         if ($result) {
-            // Record in audit log
             recordAuditTrail($_SESSION['user_id'], 'UPDATE', 'departments', $department_id, $oldValues, $departmentData);
             
             header("Location: department_view.php?id={$department_id}&updated=1");

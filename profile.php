@@ -1,5 +1,4 @@
 <?php
-// filepath: /opt/lampp/htdocs/fms/profile.php
 require_once 'includes/config.php';
 require_once 'includes/data_access.php';
 
@@ -8,7 +7,6 @@ if (!isLoggedIn()) {
     exit();
 }
 
-// Fetch admin details
 try {
     $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = ?");
     $stmt->execute([$_SESSION['user_id']]);

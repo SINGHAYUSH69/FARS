@@ -25,10 +25,23 @@ return $stmt->fetchAll(PDO::FETCH_ASSOC);
         error_log("Database error in getEvaluations: " . $e->getMessage());
         return [];
     }
+}function getStudent($facultyId = null)
+{
+    global $pdo;
+    try {
+        $sql = "SELECT f.f_id as ID, f.Name, e.Student_score FROM facultydata f JOIN evaluations e ON f.f_id = e.faculty_id 
+WHERE f.f_id = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$facultyId]);
+return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Database error in getEvaluations: " . $e->getMessage());
+        return [];
+    }
 }
 $evaluation=viewEvaluations($faculty_id);
 $evaluations = getEvaluations($faculty_id);
-
+$student=getStudent($faculty_id);
 $pageTitle = "Faculty Profile";
 include 'includes/header_fac.php';
 ?>
@@ -124,7 +137,7 @@ include 'includes/header_fac.php';
                                 Biography
                             </a>
                             <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm tab-link" data-tab="evaluations">
-                                Evaluations (<?php echo count($evaluations); ?>)
+                                Evaluations (<?php echo count($evaluations)+count($student); ?>)
                             </a>
                             <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-6 border-b-2 font-medium text-sm tab-link" data-tab="development">
                                 Development
@@ -176,11 +189,6 @@ include 'includes/header_fac.php';
                                                     <div class="ml-2 text-sm text-gray-700"><?php echo number_format($eval['Score'], 2); ?>/5.00</div>
                                                 </div>
                                             <?php endif; ?>
-                                            <div class="mt-3">
-                                                <a href="evaluation_view.php?id=<?php echo $eval['evaluation_id']; ?>" class="text-sm text-indigo-600 hover:text-indigo-900">
-                                                    View Details →
-                                                </a>
-                                            </div>
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
@@ -193,11 +201,33 @@ include 'includes/header_fac.php';
                                 <?php endif; ?>
                             <?php else: ?>
                                 <p class="text-gray-500 italic">No evaluations available for this faculty member.</p>
-                                <div class="mt-4">
-                                    <a href="evaluation_create.php?faculty_id=<?php echo $faculty_id; ?>" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-                                        Create New Evaluation
-                                    </a>
+                            <?php endif; ?>
+                            <?php if (count($student) >0): ?>
+                                <h4 class=" font-bold">Student Evaluation</h4>
+                                <div class="space-y-4">
+                                    <?php foreach ($student as $eval): ?>
+                                        <div class="border border-gray-200 rounded-md p-4">
+                                            <p class="text-sm text-gray-600 mt-2">
+                                                Name: <?php echo htmlspecialchars($eval['Name']); ?>
+                                            </p>
+                                            <?php if (!empty($eval['Student_score'])): ?>
+                                                <div class="mt-2 flex items-center">
+                                                    <div class="text-sm font-medium text-gray-900">Score: </div>
+                                                    <div class="ml-2 text-sm text-gray-700"><?php echo number_format($eval['Student_score'], 2); ?>/5.00</div>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
+                                <?php if (count($evaluation) > 3): ?>
+                                    <div class="mt-4 text-right">
+                                        <a href="evaluations.php?faculty_id=<?php echo $faculty_id; ?>" class="text-sm font-medium text-indigo-600 hover:text-indigo-900">
+                                            View All Evaluations →
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <p class="text-gray-500 italic">No Student evaluations available for this faculty member.</p>
                             <?php endif; ?>
                         </div>
                         <div id="development-tab" class="tab-content hidden">

@@ -1,5 +1,5 @@
 <?php
-// filepath: /opt/lampp/htdocs/fms/faculty.php
+
 require_once 'includes/config.php';
 require_once 'includes/data_access.php';
 
@@ -8,7 +8,7 @@ if (!isLoggedIn()) {
     exit();
 }
 
-// Get all faculty
+
 $faculty = getAllFaculty();
 
 $pageTitle = "Faculty Management";
@@ -16,9 +16,8 @@ include 'includes/header.php';
 include 'includes/sidebar.php';
 ?>
 
-<!-- Main Content -->
 <div class="flex-1 sm:ml-64">
-    <!-- Page Heading -->
+   
     <header class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <h2 class="text-lg font-semibold text-gray-800">
@@ -30,9 +29,9 @@ include 'includes/sidebar.php';
         </div>
     </header>
 
-    <!-- Page Content -->
+   
     <main class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        <!-- Faculty List -->
+       
         <div class="bg-white overflow-hidden shadow-sm rounded-lg">
             <div class="p-6">
                 <div class="overflow-x-auto">

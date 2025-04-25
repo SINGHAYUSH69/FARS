@@ -7,7 +7,6 @@ if (!isLoggedIn()) {
     exit();
 }
 
-// Check if report parameters exist in session
 if (!isset($_SESSION['report_params'])) {
     header("Location: reports.php");
     exit();
@@ -18,7 +17,6 @@ $reportType = $params['report_type'] ?? 'custom';
 $reportFormat = $params['report_format'] ?? 'pdf';
 $reportName = $params['report_name'] ?? 'Report';
 
-// Set appropriate headers based on report format
 switch ($reportFormat) {
     case 'csv':
         header('Content-Type: text/csv');
@@ -34,7 +32,7 @@ switch ($reportFormat) {
         
     case 'pdf':
     default:
-        // For PDF, show a preview page instead of direct download
+       
         $pageTitle = "Report Preview";
         include 'includes/header.php';
         include 'includes/sidebar.php';
@@ -43,21 +41,19 @@ switch ($reportFormat) {
         break;
 }
 
-// Function to generate CSV report
 function generateCSVReport($params) {
     $reportType = $params['report_type'];
     $output = fopen('php://output', 'w');
     
-    // Output headers based on report type
     switch ($reportType) {
         case 'faculty':
             fputcsv($output, ['ID', 'Name', 'Department', 'Position', 'Rank','Score', 'Tenure Status', 'Hire Date']);
             
-            // Generate query based on filters
+           
             $departmentFilter = !empty($params['department_id']) ? " AND f.department_id = " . intval($params['department_id']) : "";
             $rankFilter = !empty($params['rank']) ? " AND f.rank = '" . $params['rank'] . "'" : "";
             
-            // Query database for faculty data
+            
             global $pdo;
             $sql = "SELECT 
                         f.faculty_id,
@@ -85,7 +81,7 @@ function generateCSVReport($params) {
             }
             break;
             
-        // Add other report types here
+        
         default:
             fputcsv($output, ['Report Type', 'Sample Data']);
             fputcsv($output, ['Sample', 'Data']);
@@ -95,14 +91,13 @@ function generateCSVReport($params) {
     fclose($output);
 }
 
-// Function to generate Excel report (simplified, uses HTML tables for basic Excel)
 function generateExcelReport($params) {
     echo "<table border='1'>";
     echo "<tr><th colspan='5'>$params[report_name]</th></tr>";
     echo "<tr><th>Date Range</th><td colspan='4'>From: " . ($params['date_from'] ?? 'All time') . " To: " . ($params['date_to'] ?? 'Present') . "</td></tr>";
     echo "<tr><th>ID</th><th>Name</th><th>Department</th><th>Position</th><th>Date</th></tr>";
     
-    // Add sample data rows
+
     for ($i = 1; $i <= 10; $i++) {
         echo "<tr><td>$i</td><td>Sample Name $i</td><td>Department</td><td>Position</td><td>" . date('Y-m-d') . "</td></tr>";
     }
@@ -110,7 +105,7 @@ function generateExcelReport($params) {
     echo "</table>";
 }
 
-// Function to show PDF preview
+
 function showPDFPreview($params) {
     ?>
     <div class="flex-1 sm:ml-64">
@@ -137,7 +132,7 @@ function showPDFPreview($params) {
                     <p class="mt-1 max-w-2xl text-sm text-gray-500">Generated on <?php echo date('F j, Y'); ?></p>
                 </div>
                 
-                <!-- Report Content -->
+             
                 <div class="px-4 py-5 sm:px-6">
                     <div class="bg-gray-50 p-4 mb-6 rounded-md">
                         <h2 class="text-lg font-medium text-gray-900">Report Parameters</h2>
@@ -155,7 +150,7 @@ function showPDFPreview($params) {
                         </dl>
                     </div>
                     
-                    <!-- Sample Report Data -->
+                    
                     <h2 class="text-lg font-medium text-gray-900 mb-4">Report Data</h2>
                     
                     <?php if ($params['report_type'] === 'faculty'): ?>
@@ -172,7 +167,7 @@ function showPDFPreview($params) {
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <?php 
-                                // Get actual faculty data from database
+                                
                                 global $pdo;
                                 
                                 $departmentFilter = !empty($params['department_id']) ? " AND f.department_id = " . intval($params['department_id']) : "";

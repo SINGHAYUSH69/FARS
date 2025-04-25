@@ -7,23 +7,22 @@ if (!isLoggedIn()) {
     exit();
 }
 
-// Get all faculty for the dropdown
+
 $allFaculty = getAllFaculty();
 
-// If faculty_id is in the URL, pre-select that faculty
 $selected_faculty_id = isset($_GET['faculty_id']) ? (int)$_GET['faculty_id'] : '';
 
-// Get all performance metrics
+
 $metrics = $pdo->query("SELECT * FROM performance_metrics WHERE is_active = 1")->fetchAll(PDO::FETCH_ASSOC);
 
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Process form submission
+   
     try {
         $pdo->beginTransaction();
         
-        // Create evaluation record
+        
         $stmt = $pdo->prepare("
             INSERT INTO evaluations (
                 faculty_id, evaluator_id, academic_year, semester, status, comments, created_at
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $stmt->execute([
             $_POST['faculty_id'],
-            $_SESSION['user_id'], // Current user is the evaluator
+            $_SESSION['user_id'], 
             $_POST['academic_year'],
             $_POST['semester'],
             $_POST['comments'] ?? null
@@ -40,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $evaluationId = $pdo->lastInsertId();
         
-        // Add scores for each metric
+       
         foreach ($metrics as $metric) {
             $metricId = $metric['metric_id'];
             if (isset($_POST['metric_' . $metricId])) {
@@ -61,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         
-        // Calculate and update overall score
+        
         $avgScore = $pdo->prepare("
             SELECT AVG(score) FROM evaluation_scores WHERE evaluation_id = ?
         ");
@@ -73,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ");
         $updateScore->execute([$overallScore, $evaluationId]);
         
-        // Record audit trail
+       
         recordAuditTrail(
             $_SESSION['user_id'],
             'INSERT',
@@ -102,9 +101,9 @@ include 'includes/header.php';
 include 'includes/sidebar.php';
 ?>
 
-<!-- Main Content -->
+
 <div class="flex-1 sm:ml-64">
-    <!-- Page Heading -->
+    
     <header class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
             <h2 class="text-lg font-semibold text-gray-800">
@@ -113,9 +112,9 @@ include 'includes/sidebar.php';
         </div>
     </header>
 
-    <!-- Page Content -->
+   
     <main class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        <!-- Evaluation Form -->
+        
         <div class="bg-white overflow-hidden shadow-sm rounded-lg">
             <div class="p-6">
                 <?php if ($message): ?>
@@ -125,7 +124,7 @@ include 'includes/sidebar.php';
                 <?php endif; ?>
 
                 <form method="POST" class="space-y-6">
-                    <!-- Basic Evaluation Information -->
+                   
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
                             <label for="faculty_id" class="block text-sm font-medium text-gray-700">Faculty Member</label>
@@ -163,7 +162,7 @@ include 'includes/sidebar.php';
                         </div>
                     </div>
                     
-                    <!-- Performance Metrics -->
+                   
                     <h3 class="text-lg font-medium text-gray-900 pt-4">Performance Metrics</h3>
                     
                     <div class="space-y-4">
@@ -204,14 +203,14 @@ include 'includes/sidebar.php';
                         <?php endforeach; ?>
                     </div>
                     
-                    <!-- Overall Comments -->
+                   
                     <div>
                         <label for="comments" class="block text-sm font-medium text-gray-700">Overall Comments</label>
                         <textarea id="comments" name="comments" rows="4"
                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
                     </div>
                     
-                    <!-- Form Actions -->
+                  
                     <div class="flex justify-end">
                         <a href="evaluations.php" class="bg-gray-200 py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mr-2">
                             Cancel

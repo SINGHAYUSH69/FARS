@@ -90,7 +90,6 @@
                                 Logged in as <span class="font-medium text-gray-900"><?php echo $_SESSION['user_name'] ?? 'User'; ?></span>
                             </div>
                             <a href="<?php echo $base_url; ?>profile.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
-                            <a href="<?php echo $base_url; ?>settings.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
                             <div class="border-t border-gray-100"></div>
                             <a href="<?php echo $base_url; ?>logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
                         </div>
